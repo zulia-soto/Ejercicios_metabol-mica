@@ -1,2 +1,2 @@
-# Ejercicios_metabol-mica
+# Ejercicios_metabolomica
 Aqui subiré ejercicios para la clase
