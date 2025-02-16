@@ -1,0 +1,35 @@
+#llamado de datos
+#Diseñó: Zulia Soto
+
+install.packages("pacman") 
+#instalar paquetes
+library("pacman") #instalar y correr funciones
+#llamar a los paquetes
+p_load("readr")
+#funcion dentro del paquete para llamar otros paquetes e instalar los que no están 
+Datos_PCR <- read.csv(file="https://raw.githubusercontent.com/ManuelLaraMVZ/Transcript-mica/refs/heads/main/Resultados_tiempo_real.csv")
+head(Datos_PCR)
+#es para jalar datos
+
+#########################
+#decirle a R que solo quedén los ciclos y cereberelo (Cb) con paquete diplayer
+
+p_load("dplyr") #facilitar manejo de datos
+Tabla_filtrada <- Datos_PCR %>% #command shift M
+  select("Ciclos","Cb") #crear objeto, se eligieron 2 columnas
+Tabla_filtrada
+
+#cargar paquete para graficar
+p_load("ggplot2")
+
+#tabla es de donde lo va a sacar y despues que se graficará con aes
+grafica_1 <- ggplot(Tabla_filtrada, aes(x = Ciclos, y = Cb)) +
+  geom_point(color = "blue") +  # Puntos en color azul
+  geom_line(color = "red") +    # Línea en color rojo
+  labs(title = "Gráfica de Cb vs Ciclos", #para poner la leyenda de los ejes
+       subtitle="Cre:Zulia Soto",
+       caption = "Muestras de cerebelo",
+       x = "Ciclos",
+       y = "Fluorescencia") +
+  theme_minimal()  # Estilo minimalista
+grafica_1
