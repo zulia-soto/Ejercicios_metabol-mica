@@ -1,0 +1,23 @@
+---
+title: "ejericio 1_MT"
+author: "Zulia Soto"
+date: "2025-03-05"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r}
+Tabla_edad<-c("Nombre","Edad","Estatura")
+Nombre <- c("Mariela","Arleth","Katia","Valeria","Viridiana")
+Edad <- c(26,24,33,37,21)
+Altura <- c(1.55,1.64,1.56,1.6,1.64)
+Tabla <- data.frame(Nombre,Edad,Altura)
+
+ head(Tabla)               
+```
+
+```{r}
+Prom_edad <- mean(Edad)
+Prom_estatura <- mean(Altura)
+```
